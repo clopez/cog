@@ -222,7 +222,7 @@ platform_setup(CogLauncher *self)
      * a given platform.
      */
 
-    g_debug("%s: Platform name1: %s %p", __func__, s_options.platform_name, s_options.platform_name);
+    g_debug("%s: Platform nameX1: %s %p", __func__, s_options.platform_name, s_options.platform_name);
 
     /* According to the documentation of g_getenv() the returned string may be overwritten by the next
      * call to g_getenv(), g_setenv() or g_unsetenv(), so better try to not pass it as parameter to other
@@ -230,7 +230,7 @@ platform_setup(CogLauncher *self)
 
     g_autofree const char *platform_name = g_strdup(s_options.platform_name ?: g_getenv("COG_PLATFORM_NAME"));
 
-    g_debug("%s: Platform name1: %s %p", __func__, platform_name, platform_name);
+    g_debug("%s: Platform nameX2: %s %p", __func__, platform_name, platform_name);
 
     g_autoptr(GError)      error = NULL;
     g_autoptr(CogPlatform) platform = cog_platform_new(platform_name, &error);
@@ -240,11 +240,11 @@ platform_setup(CogLauncher *self)
     }
     g_clear_pointer(&s_options.platform_name, g_free);
 
-    g_debug("%s: Platform params1: %s %p", __func__, s_options.platform_params, s_options.platform_params);
+    g_debug("%s: Platform paramsX1: %s %p", __func__, s_options.platform_params, s_options.platform_params);
 
     g_autofree const char *platform_params = g_strdup(s_options.platform_params ?: g_getenv("COG_PLATFORM_PARAMS"));
 
-    g_debug("%s: Platform params2: %s %p", __func__, platform_params, platform_params);
+    g_debug("%s: Platform paramsX2: %s %p", __func__, platform_params, platform_params);
 
     if (!cog_platform_setup(platform, self->shell, platform_params ?: "", &error)) {
         g_warning("Platform setup failed: %s", error->message);
