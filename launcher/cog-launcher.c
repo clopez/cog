@@ -222,20 +222,33 @@ platform_setup(CogLauncher *self)
      * a given platform.
      */
 
-    g_debug("%s: Platform name: %s", __func__, s_options.platform_name);
+    g_debug("%s: Platform name1: %s %p", __func__, s_options.platform_name, s_options.platform_name);
+
+    const char *platform_name = NULL;
+    platform_name = s_options.platform_name ?: g_getenv("COG_PLATFORM_NAME");
+
+    g_debug("%s: Platform name1: %s %p", __func__, platform_name, platform_name);
 
     g_autoptr(GError)      error = NULL;
-    g_autoptr(CogPlatform) platform = cog_platform_new(s_options.platform_name, &error);
+    g_autoptr(CogPlatform) platform = cog_platform_new(platform_name, &error);
     if (!platform) {
         g_warning("Cannot create platform: %s", error->message);
         return FALSE;
     }
     g_clear_pointer(&s_options.platform_name, g_free);
 
-    if (!cog_platform_setup(platform, self->shell, s_options.platform_params ?: "", &error)) {
+    g_debug("%s: Platform params1: %s %p", __func__, s_options.platform_params, s_options.platform_params);
+
+    const char *platform_params = NULL;
+    platform_params = s_options.platform_params ?: g_getenv("COG_PLATFORM_PARAMS");
+
+    g_debug("%s: Platform params2: %s %p", __func__, platform_params, platform_params);
+
+    if (!cog_platform_setup(platform, self->shell, platform_params ?: "", &error)) {
         g_warning("Platform setup failed: %s", error->message);
         return FALSE;
     }
+    g_clear_pointer(&s_options.platform_params, g_free);
 
     self->platform = g_steal_pointer(&platform);
 
