@@ -224,8 +224,11 @@ platform_setup(CogLauncher *self)
 
     g_debug("%s: Platform name1: %s %p", __func__, s_options.platform_name, s_options.platform_name);
 
-    const char *platform_name = NULL;
-    platform_name = s_options.platform_name ?: g_getenv("COG_PLATFORM_NAME");
+    /* According to the documentation of g_getenv() the returned string may be overwritten by the next
+     * call to g_getenv(), g_setenv() or g_unsetenv(), so better try to not pass it as parameter to other
+     * functions that may call any of the *env() functions and then try to use the passed parameter */
+
+    g_autofree const char *platform_name = g_strdup(s_options.platform_name ?: g_getenv("COG_PLATFORM_NAME"));
 
     g_debug("%s: Platform name1: %s %p", __func__, platform_name, platform_name);
 
@@ -239,8 +242,7 @@ platform_setup(CogLauncher *self)
 
     g_debug("%s: Platform params1: %s %p", __func__, s_options.platform_params, s_options.platform_params);
 
-    const char *platform_params = NULL;
-    platform_params = s_options.platform_params ?: g_getenv("COG_PLATFORM_PARAMS");
+    g_autofree const char *platform_params = g_strdup(s_options.platform_params ?: g_getenv("COG_PLATFORM_PARAMS"));
 
     g_debug("%s: Platform params2: %s %p", __func__, platform_params, platform_params);
 
