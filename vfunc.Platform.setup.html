@@ -39,6 +39,9 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <meta name="twitter:card" content="summary"/>
 
   
+  
+  
+  
 
   <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -50,7 +53,6 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <script src="search.js"></script>
   
   <script src="main.js"></script>
-  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
 <body>
@@ -73,7 +75,7 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         <h3><a href="index.html">Cog</a></h3>
         <p>API Version: 0.0</p>
         
-        <p>Library Version: 0.17.1</p>
+        <p>Library Version: 0.19.1</p>
         
       </div>
       
@@ -87,22 +89,22 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <h5>Virtual methods</h5>
   <div class="links">
   
-    <a class="method" href="vfunc.Platform.create_im_context.html">create_im_context</a>
-  
     <a class="method" href="vfunc.Platform.get_view_backend.html">get_view_backend</a>
   
     <a class="method" href="vfunc.Platform.init_web_view.html">init_web_view</a>
   
     <a class="method current" href="vfunc.Platform.setup.html">setup</a>
   
+    <a class="method" href="vfunc.Platform.viewport_created.html">viewport_created</a>
+  
+    <a class="method" href="vfunc.Platform.viewport_disposed.html">viewport_disposed</a>
+  
   </div>
 </div>
 
     </nav>
-
     
     <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
-    
 
     
 <section id="main" class="content">
@@ -117,18 +119,18 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         Declaration
         <a href="#declaration" class="anchor"></a>
         
-        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-platform.h#L46">[src]</a>
+        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-platform.h#L50">[src]</a>
         
       </h4>
 
       <div class="docblock c-decl">
-        <pre><code><div class="highlight"><pre><span></span><span class="n">gboolean</span>
-<span class="n">setup</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="n">CogPlatform</span><span class="o">*</span><span class="w"> </span><span class="n">arg0</span><span class="p">,</span>
-<span class="w">  </span><span class="n">CogShell</span><span class="o">*</span><span class="w"> </span><span class="n">shell</span><span class="p">,</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">,</span>
-<span class="w">  </span><span class="n">GError</span><span class="o">**</span><span class="w"> </span><span class="n">error</span>
-<span class="p">)</span>
+        <pre><code><div class="highlight"><pre><span></span><span class="n">gboolean</span><span class="w"></span>
+<span class="n">setup</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="n">CogPlatform</span><span class="o">*</span><span class="w"> </span><span class="n">arg0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">CogShell</span><span class="o">*</span><span class="w"> </span><span class="n">shell</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">GError</span><span class="o">**</span><span class="w"> </span><span class="n">error</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </pre></div>
 </code></pre>
       </div>
@@ -139,10 +141,19 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         Description
         <a href="#description" class="anchor"></a>
         
+        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-platform.c#L177">[src]</a>
+        
       </h4>
 
       <div class="docblock">
-        No description available.
+        <p>Configure the platform plug-in&nbsp;module.</p>
+<p>If the <code>params</code> string is <code>NULL</code> or empty, the value of the
+<code>COG_PLATFORM_PARAMS</code> environment variable will be used, if defined.
+Each platform module may have its own syntax for the parameters string,
+but typically they accept a list of comma-separated <code>variable=value</code>
+assignments.</p>
+<p>The documentation for each platform plug-in details the available
+parameters and deviations of the parameter string syntax, if&nbsp;applicable.</p>
       </div>
 
       <div class="docblock">
@@ -172,7 +183,7 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
           </tr>
           <tr class="arg-description">
             <td>&nbsp;</td>
-            <td>No description available.</td>
+            <td><p>The shell being&nbsp;configured.</p></td>
           </tr>
           
           
@@ -190,17 +201,17 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
           </tr>
           <tr class="arg-description">
             <td>&nbsp;</td>
-            <td>No description available.</td>
+            <td><p>String with parameters for the platform&nbsp;plug-in.</p></td>
           </tr>
           
-          
+          <tr><td>&nbsp;</td><td>The argument can be <code>NULL</code>.</td></tr>
           
           
           
           
           
           <tr><td>&nbsp;</td><td title="transfer: none">The data is owned by the caller of the function.</td></tr>
-          <tr><td>&nbsp;</td><td>The string is a NUL terminated UTF-8 string.</td></tr>
+          <tr><td>&nbsp;</td><td>The value is a NUL terminated UTF-8 string.</td></tr>
           
           
           <tr class="arg-name">
@@ -232,7 +243,7 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
           </tr>
           <tr class="arg-description">
             <td>&nbsp;</td>
-            <td>No description available.</td>
+            <td><p>Whether the platform was configured&nbsp;successfully.</p></td>
           </tr>
           
           
@@ -248,6 +259,8 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   </section>
 </section>
 
+
+    
 
     <section id="search" class="content hidden"></section>
 

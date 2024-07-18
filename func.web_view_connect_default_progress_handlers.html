@@ -39,6 +39,9 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <meta name="twitter:card" content="summary"/>
 
   
+  
+  
+  
 
   <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -50,7 +53,6 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <script src="search.js"></script>
   
   <script src="main.js"></script>
-  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
 <body>
@@ -73,7 +75,7 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         <h3><a href="index.html">Cog</a></h3>
         <p>API Version: 0.0</p>
         
-        <p>Library Version: 0.17.1</p>
+        <p>Library Version: 0.19.1</p>
         
       </div>
       
@@ -87,10 +89,8 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
 
 
     </nav>
-
     
     <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
-    
 
     
 <section id="main" class="content">
@@ -105,15 +105,15 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         Declaration
         <a href="#declaration" class="anchor"></a>
         
-        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-webkit-utils.h#L63">[src]</a>
+        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-webkit-utils.h#L71">[src]</a>
         
       </h4>
 
       <div class="docblock">
-        <pre><code><div class="highlight"><pre><span></span><span class="kt">void</span>
-<span class="n">cog_web_view_connect_default_progress_handlers</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="n">WebKitWebView</span><span class="o">*</span><span class="w"> </span><span class="n">web_view</span>
-<span class="p">)</span>
+        <pre><code><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"></span>
+<span class="n">cog_web_view_connect_default_progress_handlers</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="n">WebKitWebView</span><span class="o">*</span><span class="w"> </span><span class="n">web_view</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </pre></div>
 </code></pre>
       </div>
@@ -124,18 +124,23 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         Description
         <a href="#description" class="anchor"></a>
         
-        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-webkit-utils.c#L446">[src]</a>
+        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-webkit-utils.c#L456">[src]</a>
         
       </h4>
 
       <div class="docblock">
         <p>Install the default page load progress signal&nbsp;handlers.</p>
-<p>Connects <a href="func.handle_web_view_load_changed.html">cog_handle_web_view_load_changed()</a> as a callback to its
+<p>Connects <a href="func.handle_web_view_load_changed.html"><code>cog_handle_web_view_load_changed()</code></a> as a callback to its
 respective&nbsp;signal.</p>
       </div>
 
       <div class="docblock">
         <table>
+          
+          
+          
+          
+          <tr><td>This function is not directly available to language bindings</td></tr>
           
           
           
@@ -183,6 +188,8 @@ respective&nbsp;signal.</p>
   </section>
 </section>
 
+
+    
 
     <section id="search" class="content hidden"></section>
 

@@ -39,6 +39,9 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <meta name="twitter:card" content="summary"/>
 
   
+  
+  
+  
 
   <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -50,7 +53,6 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <script src="search.js"></script>
   
   <script src="main.js"></script>
-  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
 <body>
@@ -73,7 +75,7 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         <h3><a href="index.html">Cog</a></h3>
         <p>API Version: 0.0</p>
         
-        <p>Library Version: 0.17.1</p>
+        <p>Library Version: 0.19.1</p>
         
       </div>
       
@@ -126,10 +128,8 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
 
 
     </nav>
-
     
     <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
-    
 
     
 <section id="main" class="content">
@@ -143,7 +143,7 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
 
     <div class="meta info">
       <table>
-        <tr><td><em>Version</em></td><td>0.17.1</td></tr>
+        <tr><td><em>Version</em></td><td>0.19.1</td></tr>
         <tr><td><em>Authors</em></td><td>The WPE WebKit team</td></tr>
         <tr><td><em>License</em></td><td>MIT</td></tr>
         <tr><td><em>Website</em></td><td><a href="https://wpewebkit.org" class="external">https://wpewebkit.org</a></td></tr>
@@ -174,46 +174,56 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
       <div class="docblock">
         <table>
         
+          
           <tr>
-            <td><strong>GLib</strong></td>
+            <td><strong>GLib</strong>&mdash;2.0</td>
             <td>The base utility library</td>
           </tr>
           <tr>
             <td></td>
             <td><a href="https://developer.gnome.org/glib/stable" class="external">Browse documentation</a></td>
           </tr>
+          
         
+          
           <tr>
-            <td><strong>GObject</strong></td>
+            <td><strong>GObject</strong>&mdash;2.0</td>
             <td>The base type system library</td>
           </tr>
           <tr>
             <td></td>
             <td><a href="https://developer.gnome.org/gobject/stable" class="external">Browse documentation</a></td>
           </tr>
+          
         
+          
           <tr>
-            <td><strong>Gio</strong></td>
+            <td><strong>Gio</strong>&mdash;2.0</td>
             <td>The GLib input/output library</td>
           </tr>
           <tr>
             <td></td>
             <td><a href="https://developer.gnome.org/gio/stable" class="external">Browse documentation</a></td>
           </tr>
+          
         
+          
           <tr>
-            <td><strong>Soup</strong></td>
+            <td><strong>Soup</strong>&mdash;2.4</td>
             <td>The Soup networking library</td>
           </tr>
           <tr>
             <td></td>
             <td><a href="https://developer.gnome.org/libsoup/stable" class="external">Browse documentation</a></td>
           </tr>
+          
         
         </table>
       </div>
     </div>
   </section>
+  
+
   
 
   
@@ -229,6 +239,8 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         
           <li><a href="overview.html">Overview</a></li>
         
+          <li><a href="running.html">Running Cog Applications</a></li>
+        
           <li><a href="contributing.html">Contributing</a></li>
         
           <li><a href="platform-wl.html">Platform: WL</a></li>
@@ -238,6 +250,8 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
           <li><a href="platform-x11.html">Platform: X11</a></li>
         
           <li><a href="platform-headless.html">Platform: Headless</a></li>
+        
+          <li><a href="platform-fallback.html">Platform: Fallback</a></li>
         
           <li><a href="webdriver.html">WebDriver support</a></li>
         
@@ -298,6 +312,20 @@ a local&nbsp;directory.</p></td>
             <td class="docblock-summary"><p>A shell managed a WebKit.WebView, the default <span class="caps">URI</span> that it will
 load, the view configuration, and keeps track of a number of registered
 <code>CogRequestHandler</code> instances.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="View" class="symbol" href="class.View.html">View</a></td>
+            
+            <td class="docblock-summary"><p>Convenience base class for web&nbsp;views.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="Viewport" class="symbol" href="class.Viewport.html">Viewport</a></td>
+            
+            <td class="docblock-summary"><p>Observable set of views, one of which can be&nbsp;visible.</p></td>
             
           </tr>
           
@@ -489,6 +517,13 @@ value passed as <code>userdata</code> as&nbsp;status.</p></td>
           </tr>
           
           <tr class="section-item">
+            <td><a title="init" class="symbol" href="func.init.html">init</a></td>
+            
+            <td class="docblock-summary"><p>Initialize the library, optionally indicating&nbsp;options.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
             <td><a title="modules_add_directory" class="symbol" href="func.modules_add_directory.html">modules_add_directory</a></td>
             
             <td class="docblock-summary"><p>Scans a directory for loadable modules and registers them with the
@@ -594,6 +629,13 @@ and uses them to set the writable properties of a WebKit.Settings&nbsp;object.</
             
           </tr>
           
+          <tr class="section-item">
+            <td><a title="SHELL_DEFAULT_VIEWPORT_INDEX" class="symbol" href="const.SHELL_DEFAULT_VIEWPORT_INDEX.html">SHELL_DEFAULT_VIEWPORT_INDEX</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
           </tbody>
         </table>
       </div>
@@ -602,6 +644,8 @@ and uses them to set the writable properties of a WebKit.Settings&nbsp;object.</
   
 </section>
 
+
+    
 
     <section id="search" class="content hidden"></section>
 

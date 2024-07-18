@@ -39,6 +39,9 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <meta name="twitter:card" content="summary"/>
 
   
+  
+  
+  
 
   <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -50,7 +53,6 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <script src="search.js"></script>
   
   <script src="main.js"></script>
-  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
 <body>
@@ -73,7 +75,7 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         <h3><a href="index.html">Cog</a></h3>
         <p>API Version: 0.0</p>
         
-        <p>Library Version: 0.17.1</p>
+        <p>Library Version: 0.19.1</p>
         
       </div>
       
@@ -87,13 +89,9 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   <h5>Methods</h5>
   <div class="links">
   
-    <a class="method" href="method.Platform.create_im_context.html">create_im_context</a>
-  
     <a class="method current" href="method.Platform.get_view_backend.html">get_view_backend</a>
   
     <a class="method" href="method.Platform.init_web_view.html">init_web_view</a>
-  
-    <a class="method" href="method.Platform.set_default.html">set_default</a>
   
     <a class="method" href="method.Platform.setup.html">setup</a>
   
@@ -101,10 +99,8 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
 </div>
 
     </nav>
-
     
     <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
-    
 
     
 <section id="main" class="content">
@@ -119,17 +115,17 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
         Declaration
         <a class="anchor" href="#declaration"></a>
         
-        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-platform.h#L58">[src]</a>
+        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-platform.h#L68">[src]</a>
         
       </h4>
 
       <div class="docblock c-decl">
-        <pre><code><div class="highlight"><pre><span></span><span class="n">WebKitWebViewBackend</span><span class="o">*</span>
-<span class="n">cog_platform_get_view_backend</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="n">CogPlatform</span><span class="o">*</span><span class="w"> </span><span class="n">platform</span><span class="p">,</span>
-<span class="w">  </span><span class="n">WebKitWebView</span><span class="o">*</span><span class="w"> </span><span class="n">related_view</span><span class="p">,</span>
-<span class="w">  </span><span class="n">GError</span><span class="o">**</span><span class="w"> </span><span class="n">error</span>
-<span class="p">)</span>
+        <pre><code><div class="highlight"><pre><span></span><span class="n">WebKitWebViewBackend</span><span class="o">*</span><span class="w"></span>
+<span class="n">cog_platform_get_view_backend</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="n">CogPlatform</span><span class="o">*</span><span class="w"> </span><span class="n">platform</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WebKitWebView</span><span class="o">*</span><span class="w"> </span><span class="n">related_view</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">GError</span><span class="o">**</span><span class="w"> </span><span class="n">error</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
 </pre></div>
 </code></pre>
       </div>
@@ -148,6 +144,11 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
 
       <div class="docblock">
         <table>
+          
+          
+          
+          
+          <tr><td>This method is not directly available to language bindings.</td></tr>
           
           
           
@@ -231,6 +232,8 @@ SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
   </section>
 </section>
 
+
+    
 
     <section id="search" class="content hidden"></section>
 
